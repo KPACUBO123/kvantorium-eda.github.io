@@ -1,0 +1,18 @@
+array (
+  1 => 
+  array (
+    'id' => '1',
+    'title' => 'Samsung Galaxy S10',
+    'price' => '20',
+    'img' => 'http://cart.loc/img/samsung.png',
+    'count' => '2',
+  ),
+  2 => 
+  array (
+    'id' => '2',
+    'title' => 'LG Optimus G E100500',
+    'price' => '100',
+    'img' => 'http://cart.loc/img/lg.png',
+    'count' => '1',
+  ),
+)

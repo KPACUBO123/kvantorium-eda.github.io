@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Wicart ver2.0</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="themes/theme1.css" />
+	<link rel="stylesheet" type="text/css" href="wicart.css" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" ></script>
+	<!-- WI-JQ-HEADER -->
+	<script src="wicart.js"  type="text/javascript" ></script>
+	<!-- WI-HEADER -->
+	<style>
+	.v {border:1px solid #999; border-radius: 5px;padding: 10px;margin-bottom: 10px; width: 340px;}
+	</style>
+</head>
+<body>
+<script>
+var priceList = {
+	"001" : {"id" : "001", "subid" : {}, "name" : "IPhone 5", "price" : "20500"},
+	"002" : {"id" : "002", "subid" : {}, "name" : "IPad MINI", "price" : "10500"}
+	};
+</script>	
+<h1>Пример JQuery корины для сайта</h1>
+
+<div class="cart">
+<div class="price"><a href="#" id="basketwidjet" onclick="cart.showWinow('bcontainer', 1)"></a></div>
+
+<div style="text-align: center"><a href="#!" onclick="cart.clearBasket()">Очистить корзину</a></div>
+</div>
+<!-- WI-BASKET -->
+
+
+<div class="v">
+<div><img class="im" src="img/iphone5.png" /></div>
+Цена: <span class="wicartprice" id="wicartprice_001">20500</span> Руб.</p>
+<!-- WI-VETRINE[001] -->	
+<button id="wicartbutton_001" onclick="cart.addToCart(this, '001', priceList['001'])">Купить</button>
+</div>
+
+<div class="v">
+<div><img class="im" src="img/ipad.png" /></div>
+Цена: <span class="wicartprice" id="wicartprice_002">10500</span> Руб.</p>
+<!-- WI-VETRINE[002] -->	
+<button id="wicartbutton_002" onclick="cart.addToCart(this, '002', priceList['002'])">Купить</button>
+</div>
+
+<!---Форма для магазина-------------------------------->
+<div id="order" class="popup">
+<a href="#" onclick="cart.closeWindow('order', 0)" style="float:right">[закрыть]</a>
+<h4>Введите ваши контактные данные</h4>
+
+<form id="formToSend">
+<input id="fio" type="text" placeholder="Ваши фамилия и имя"  class="" />
+<input id="city" type="text" placeholder="Город"  class="text-input"/>
+<input id="phone" type="text" placeholder="Контактный телефон" class="text-input"/>
+<input id="email" type="text" placeholder="Электронная почта" class="" />
+<br>
+<textarea id="question" placeholder="Адрес"></textarea>
+</form>
+<button onclick="cart.sendOrder('formToSend,overflw,bsum');" href="#">Отправить заказ</button>
+</div>
+<!----------------------------------------------------->
+
+
+<script>
+var cart;
+var config;
+var wiNumInputPrefID;
+/* WI-GLOBAL-VARS */
+$(document).ready(function(){  
+    cart = new WICard("cart");
+    config = {'clearAfterSend':true, 'showAfterAdd':false};
+    
+    cart.init("basketwidjet", config);
+    /* WI-MODULES */
+    
+    
+});	
+document.addEventListener('visibilitychange', function(e) {
+cart.init("basketwidjet", config);
+}, false);
+</script>
+
+</body>
+</html>
